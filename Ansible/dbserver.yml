@@ -23,4 +23,4 @@
   handlers:
     - name: print_message
       debug:
-         msg: "Hello user"
+         msg: "Hello"
