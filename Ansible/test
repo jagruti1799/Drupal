@@ -1,0 +1,26 @@
+---
+- name: Deployment on dbserver
+  hosts: localhost
+  vars:
+    - db_name: drupal
+    - db_user: drupal_user
+    - db_password: 1q2w3e4r5t6y7u8i
+  roles:
+     - dbserver
+
+
+
+
+--- 
+- 
+  hosts: localhost
+  become: yes
+  tasks: 
+    - 
+      loop: 
+        - john
+        - tina
+      name: "Remove new users"
+      user: 
+        name: "{{item}}"
+        state: absent

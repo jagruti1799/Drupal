@@ -1,0 +1,21 @@
+--- 
+- 
+  hosts: localhost
+  become: yes
+  gather_facts: false
+  tasks: 
+    - block:
+       - name: "Create user1"
+         user: 
+            name : test1
+            state: absent
+      rescue:
+       - name: "Create user2" 
+         user: 
+            name : test2
+            state: present
+      always:
+       - name: "Create user3" 
+         user: 
+            name : test3
+            state: absent

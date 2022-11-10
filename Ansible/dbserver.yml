@@ -1,0 +1,26 @@
+--- 
+- 
+  hosts: localhost
+  become: yes
+  force_handlers: yes
+  tasks: 
+    - name: "Create user"
+      user: 
+         name : test1
+         state: presen
+      ignore_errors: yes
+      notify: 
+        - print_message
+    - 
+      loop: 
+        - john
+        - tina
+      name: "Remove new users"
+      user: 
+        name: "{{item}}"
+        state: absent
+        home: "/home/{{item}}/Desktop"
+  handlers:
+    - name: print_message
+      debug:
+         msg: "Hello"

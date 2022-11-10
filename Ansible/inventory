@@ -1,0 +1,3 @@
+dbserver ansible_ssh_host=20.219.125.198
+webserver ansible_ssh_host=20.219.126.10
+example_server ansible_ssh_host=4.224.20.51
