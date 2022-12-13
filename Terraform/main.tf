@@ -11,12 +11,12 @@ provider "azurerm" {
   features {}
 }
 module "vnet" {
-  source              = "/home/einfochips/Desktop/drupal/Terraform/vnet"
+  source              = "./vnet"
   location            = var.location
 
 }
 
 module "vm" {
-  source              = "/home/einfochips/Desktop/drupal/Terraform/vm"
+  source              = "./vm"
   location            = var.location
 }
